@@ -1,3 +1,6 @@
+import dash
+dash.register_page(__name__, path='/volume') # L'adresse sera /volume
+
 # pages/volume.py
 from dash import html, dcc
 import dash_bootstrap_components as dbc

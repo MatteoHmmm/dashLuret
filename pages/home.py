@@ -1,3 +1,6 @@
+import dash
+dash.register_page(__name__, path='/') # C'est la page d'accueil
+
 # pages/home.py
 from dash import html, dcc, dash_table
 import dash_bootstrap_components as dbc
