@@ -1,16 +1,12 @@
 # app.py
 from dash import Dash, html, page_container
 import dash_bootstrap_components as dbc
-
-# IMPORTATION DES CALLBACKS (Indispensable pour qu'ils soient actifs)
 import pages.home_cb 
 import pages.volume_cb 
 
-# On active le mode multi-pages (use_pages=True)
 app = Dash(__name__, external_stylesheets=[dbc.themes.LUX], use_pages=True)
-app.title = "Avocado Analytics"
+app.title = "Avocado Analytics Pro"
 
-# Création de la barre de navigation
 navbar = dbc.NavbarSimple(
     children=[
         dbc.NavItem(dbc.NavLink("Analyse des Prix", href="/")),
@@ -24,10 +20,18 @@ navbar = dbc.NavbarSimple(
     className="mb-4"
 )
 
-# Le layout de base contient la Navbar + le contenu de la page actuelle
+# Ajout d'un Footer
+footer = html.Footer(
+    dbc.Container(
+        html.P("© 2024 - Projet Dash Avocado - Réalisé dans le cadre du module MECEN", 
+               className="text-center text-muted border-top pt-3 mt-5"),
+    )
+)
+
 app.layout = html.Div([
     navbar,
-    page_container # C'est ici que Dash injecte le contenu de home, volume ou infos
+    page_container,
+    footer
 ])
 
 if __name__ == "__main__":
